@@ -10,30 +10,87 @@
 
 </head>
 <body>
+    <h1>Bevásárló lista</h1>
 
-    <div class="container">
-
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Menü</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-              <ul class="navbar-nav" ng-if="!isLoggedIn">
-                <li class="nav-item">
-                  <a class="nav-link" href="#!/login">Belépés</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#!/reg">Regisztráció</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
+<div class="minden">
+    <span>Kategória
+    </span>
+    <div class="input-group mb-3">
+        <select class="form-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="Termeknev">
+        <span>
+            Terméknév
+        </span>
+        <div class="input-group mb-3">
+            <select class="form-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            </select>
+        </div>
+      </div>
+      <div class="Mennyiseg mb-3">
+          <span>Mennyiség</span>
+          <input type="number" class="form-control" name="" id="">
+      </div>
+      <div class="Egysegar">
+          <span>Egység ár</span>
+          <input type="text" class="form-control" readonly>
+      </div>
+      <div class="Osszeg">
+        <span>Összeg</span>
+        <input type="text" class="form-control" readonly>
     </div>
+    <button type="button" class="btn btn-success">+</button>
+</div> 
+<div class=tablazat>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<div>
+    <button type="button" class="btn btn-danger">Törlés</button>
+    <button type="button" class="btn btn-success">Mentés</button>
+
+<br>
+    <span>Fizetendő</span>
+    <input type="text" class="form-control" readonly>
+</div>
+
        
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
