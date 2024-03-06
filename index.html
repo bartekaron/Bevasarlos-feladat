@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu" ng-app="orarendApp">
+<html lang="hu" ng-app="bevasarlo">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,75 +10,67 @@
 
 </head>
 <body>
-    <h1>Bevásárló lista</h1>
+    <div class="title">
+      <h1>{{title}}</h1>
+    </div>
+    
 
 <div class="minden">
-    <span>Kategória
-    </span>
-    <div class="input-group mb-3">
-        <select class="form-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+      <div class="Kategoria">
+        <span>Kategória
+        </span>
+        <div class="input-group mb-3">
+            <select class="form-select" id="kategoria" >
+              <option selected>Choose...</option>
+              
+            </select>
+          </div>
       </div>
+    
       <div class="Termeknev">
         <span>
             Terméknév
         </span>
         <div class="input-group mb-3">
-            <select class="form-select" id="inputGroupSelect01">
+            <select class="form-select" id="termeknev" onchange="valtozas()">
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            
             </select>
         </div>
       </div>
       <div class="Mennyiseg mb-3">
           <span>Mennyiség</span>
-          <input type="number" class="form-control" name="" id="">
+          <input type="number" class="form-control" value="0">
       </div>
+
       <div class="Egysegar">
           <span>Egység ár</span>
-          <input type="text" class="form-control" readonly>
+          <input type="number" class="form-control" readonly id="egysegar">
       </div>
+
       <div class="Osszeg">
         <span>Összeg</span>
         <input type="text" class="form-control" readonly>
     </div>
+
     <button type="button" class="btn btn-success">+</button>
+
 </div> 
 <div class=tablazat>
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Kategória</th>
+            <th scope="col">Terméknév</th>
+            <th scope="col">Mennyiség</th>
+            <th scope="col">Egységár</th>
+            <th scope="col">Összeg</th>
+            <th scope="col">Művelet</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          
+         
         </tbody>
       </table>
 </div>
