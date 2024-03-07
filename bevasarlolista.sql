@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Már 07. 14:06
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2024. Már 07. 18:58
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,23 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `hozza_adottak`
+-- Tábla szerkezet ehhez a táblához `hozzaadottak`
 --
 
-CREATE TABLE `hozza_adottak` (
-  `category` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
-  `productname` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
+CREATE TABLE `hozzaadottak` (
+  `id` int(11) NOT NULL,
+  `category` varchar(30) NOT NULL,
+  `productname` varchar(30) NOT NULL,
   `quantity` int(11) NOT NULL,
   `unitprice` int(11) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `hozza_adottak`
---
-
-INSERT INTO `hozza_adottak` (`category`, `productname`, `quantity`, `unitprice`, `price`) VALUES
-('meat', 'rice', 5, 3332, 16660);
 
 -- --------------------------------------------------------
 
@@ -51,8 +44,8 @@ INSERT INTO `hozza_adottak` (`category`, `productname`, `quantity`, `unitprice`,
 
 CREATE TABLE `mock_data` (
   `id` int(11) NOT NULL,
-  `category` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
-  `productname` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
+  `category` varchar(30) NOT NULL,
+  `productname` varchar(30) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -132,6 +125,12 @@ INSERT INTO `mock_data` (`id`, `category`, `productname`, `price`) VALUES
 --
 
 --
+-- A tábla indexei `hozzaadottak`
+--
+ALTER TABLE `hozzaadottak`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `mock_data`
 --
 ALTER TABLE `mock_data`
@@ -140,6 +139,12 @@ ALTER TABLE `mock_data`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `hozzaadottak`
+--
+ALTER TABLE `hozzaadottak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `mock_data`

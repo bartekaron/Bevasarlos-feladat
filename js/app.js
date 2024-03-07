@@ -42,7 +42,7 @@ axios.get('http://localhost:3000/mock_data').then(res => {
 
 }); 
 
-axios.get('http://localhost:3000/hozza_adottak').then(res => {
+axios.get('http://localhost:3000/hozzaadottak').then(res => {
     hozzaadottItemek = res.data;
     hozzaadottItemek.forEach(user => {
 
@@ -142,6 +142,7 @@ function adatHozzaadas(){
         frissit.value = "()";
         frissit.onclick = function frissites(){
             td5.innerHTML = egysegar.value * mennyiseg.value;
+            
         };
 
 
@@ -169,7 +170,7 @@ function adatHozzaadas(){
         tr.appendChild(td5);
         tr.appendChild(td6);
         tbody.appendChild(tr);
-        hozzaadottItemek += [{"category":kategoria.value,"productname":termeknev.value,"quantity":mennyiseg.value,"unitprice":egysegar.value,"price":ar}]
+        hozzaadottItemek.push({"category":kategoria.value,"productname":termeknev.value,"quantity":mennyiseg.value,"unitprice":egysegar.value,"price":ar});
         fizetendoSzamitas();
     
         
@@ -185,7 +186,6 @@ function mentes(){
     for (let i = 0; i < hozzaadottItemek.length; i++) {
 
         let data = {
-            table: 'hozza_adottak',
             category: hozzaadottItemek[i].category,
             productname: hozzaadottItemek[i].productname,
             quantity: hozzaadottItemek[i].quantity,
@@ -193,7 +193,7 @@ function mentes(){
             price: hozzaadottItemek[i].price
         }
 
-        axios.post('http://localhost:3000/bevasarlolista/hozza_adottak', data)
+        axios.post('http://localhost:3000/bevasarlolista/hozzaadottak', data)
        
     }
     
@@ -207,6 +207,7 @@ function fizetendoSzamitas(){
         osszeg += hozzaadottItemek[i].price;
         
     }
+    
     fizetendo.value = osszeg;
 
 }
