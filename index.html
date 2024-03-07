@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bevásárlós bohockodás</title>
+    <title>Bevásárló lista</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -20,8 +20,8 @@
         <span>Kategória
         </span>
         <div class="input-group mb-3">
-            <select class="form-select" id="kategoria" >
-              <option selected>Choose...</option>
+            <select class="form-select" id="kategoria" onchange="kategoriaValtozas()">
+              <option selected>Válassz...</option>
               
             </select>
           </div>
@@ -32,15 +32,15 @@
             Terméknév
         </span>
         <div class="input-group mb-3">
-            <select class="form-select" id="termeknev" onchange="valtozas()">
-            <option selected>Choose...</option>
+            <select class="form-select" id="termeknev" onchange="termeknevValtozas(), mennyisegValtozas()">
+            <option selected>Válassz...</option>
             
             </select>
         </div>
       </div>
       <div class="Mennyiseg mb-3">
           <span>Mennyiség</span>
-          <input type="number" class="form-control" value="0">
+          <input type="number" class="form-control" value="0" id="mennyiseg" onchange="mennyisegValtozas()">
       </div>
 
       <div class="Egysegar">
@@ -50,10 +50,10 @@
 
       <div class="Osszeg">
         <span>Összeg</span>
-        <input type="text" class="form-control" readonly>
+        <input type="text" class="form-control" readonly id="osszeg">
     </div>
 
-    <button type="button" class="btn btn-success">+</button>
+    <button type="button" class="btn btn-success" id="plusz" onclick="adatHozzaadas(), fizetendoSzamitas()">+</button>
 
 </div> 
 <div class=tablazat>
@@ -75,14 +75,15 @@
       </table>
 </div>
 <div>
-    <button type="button" class="btn btn-danger">Törlés</button>
-    <button type="button" class="btn btn-success">Mentés</button>
-
-<br>
-    <span>Fizetendő</span>
-    <input type="text" class="form-control" readonly>
+    <button type="button" class="btn btn-danger"  onclick="teljesTorles()">Törlés</button>
+    <button type="button" class="btn btn-success" onclick="mentes()">Mentés</button>
+   
 </div>
 
+<footer>
+  <span>Fizetendő</span>
+  <input type="text" class="form-control" readonly id="fizetendo">
+</footer>
        
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
