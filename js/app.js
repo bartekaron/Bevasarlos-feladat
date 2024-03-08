@@ -181,25 +181,36 @@ function teljesTorles(){
     tbody.remove();
 }
 
-function mentes(){
+function mentes() {
+    let promises = [];
 
     for (let i = 0; i < hozzaadottItemek.length; i++) {
-
         let data = {
             category: hozzaadottItemek[i].category,
             productname: hozzaadottItemek[i].productname,
             quantity: hozzaadottItemek[i].quantity,
             unitprice: hozzaadottItemek[i].unitprice,
             price: hozzaadottItemek[i].price
-        }
-
-        axios.post('http://localhost:3000/bevasarlolista/hozzaadottak', data)
-       
+        };
+        promises.push(
+            axios.post('http://localhost:3000/bevasarlolista/hozzaadottak', data)
+                .then(response => {
+                    console.log("Adat sikeresen elmentve:", response.data);
+                })
+                .catch(error => {
+                    console.error("Hiba történt az adat mentése közben:", error);
+                })
+        );
     }
-    
-
-    
+    Promise.all(promises)
+        .then(() => {
+            console.log("Minden adat sikeresen elmentve.");
+        })
+        .catch(error => {
+            console.error("Hiba történt a mentés során:", error);
+        });
 }
+
 
 function fizetendoSzamitas(){
     let osszeg = 0;
