@@ -39,7 +39,10 @@ app.get('/hozzaadottak', (req, res) => {
 
 app.post('/hozzaadottak', (req, res)=>{
   let data = req.body;
+<<<<<<< HEAD
   console.log(req.body);
+=======
+>>>>>>> 1a50a76d753795c8b4caa33473ae273329896d22
   pool.query(`INSERT INTO hozzaadottak VALUES(null, '${data.category}', '${data.productname}', '${data.quantity}', '${data.unitprice}', '${data.price}')`, (error, results) => {
       if (error) res.status(500).send(error);
       res.status(200).send(results);
