@@ -38,7 +38,7 @@ app.get('/hozzaadottak', (req, res) => {
 
 app.post('/hozzaadottak', (req, res)=>{
   let data = req.body;
-  pool.query(`INSERT INTO hozzaadottak VALUES( '${data.category}', '${data.productname}', '${data.quantity}', '${data.unitprice}', '${data.price}'`, (error, results) => {
+  pool.query(`INSERT INTO hozzaadottak VALUES(null, '${data.category}', '${data.productname}', '${data.quantity}', '${data.unitprice}', '${data.price}')`, (error, results) => {
       if (error) res.status(500).send(error);
       res.status(200).send(results);
   });

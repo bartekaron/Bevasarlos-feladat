@@ -28,6 +28,7 @@ axios.get('http://localhost:3000/mock_data').then(res => {
         optionCategory.innerText = user.category;
         kategoria.appendChild(optionCategory);
 
+       
 
         let optionProduct = document.createElement('option');
         optionProduct.value = user.productname;
@@ -36,7 +37,7 @@ axios.get('http://localhost:3000/mock_data').then(res => {
 
        
     });
-
+    kategoria.addEventListener('change', termeknevValtozas)
    
 
 
@@ -99,15 +100,20 @@ axios.get('http://localhost:3000/hozzaadottak').then(res => {
     })
 });
 
-function termeknevValtozas(){
-    for (let i = 0; i < itemek.length; i++) {
-        
-        if (termeknev.value == itemek[i].productname) {
-            egysegar.value = itemek[i].price;
-
-        }
-        
-    }
+function termeknevValtozas() {
+    let selectedCategory = kategoria.value;
+    let filteredProducts = itemek.filter(item => item.category === selectedCategory);
+ 
+    termeknev.innerHTML = '<option selected>Válassz...</option>'; // Clear previous options
+ 
+    filteredProducts.forEach(product => {
+        let optionProduct = document.createElement('option');
+        optionProduct.value = product.productname;
+        optionProduct.innerText = product.productname;
+        termeknev.appendChild(optionProduct);
+    });
+    
+    egysegar.value = filteredProducts.length > 0 ? filteredProducts[0].price : 0;
 }
 
 function mennyisegValtozas(){
