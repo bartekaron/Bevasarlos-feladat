@@ -193,7 +193,7 @@ function mentes() {
             price: hozzaadottItemek[i].price
         };
         promises.push(
-            axios.post('http://localhost:3000/bevasarlolista/hozzaadottak', data)
+            axios.post('http://localhost:3000/hozzaadottak', data)
                 .then(response => {
                     console.log("Adat sikeresen elmentve:", response.data);
                 })
