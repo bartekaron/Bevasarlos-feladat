@@ -161,7 +161,7 @@ function adatHozzaadas(){
         
 
         td3.appendChild(mennyiseg);
-        td6.appendChild(frissit);
+        td6.appendChild(frissit);   
         td6.appendChild(btn);
         tr.appendChild(td1);
         tr.appendChild(td2);
@@ -193,6 +193,7 @@ function mentes() {
             price: hozzaadottItemek[i].price
         };
         promises.push(
+            
             axios.post('http://localhost:3000/hozzaadottak', data)
                 .then(response => {
                     console.log("Adat sikeresen elmentve:", response.data);
@@ -200,7 +201,8 @@ function mentes() {
                 .catch(error => {
                     console.error("Hiba történt az adat mentése közben:", error);
                 })
-        );
+        )
+        
     }
     Promise.all(promises)
         .then(() => {
