@@ -28,7 +28,7 @@ axios.get('http://localhost:3000/mock_data').then(res => {
         optionCategory.innerText = user.category;
         kategoria.appendChild(optionCategory);
 
-       
+
 
         let optionProduct = document.createElement('option');
         optionProduct.value = user.productname;
@@ -103,16 +103,16 @@ axios.get('http://localhost:3000/hozzaadottak').then(res => {
 function termeknevValtozas() {
     let selectedCategory = kategoria.value;
     let filteredProducts = itemek.filter(item => item.category === selectedCategory);
- 
+
     termeknev.innerHTML = '<option selected>Válassz...</option>'; // Clear previous options
- 
+
     filteredProducts.forEach(product => {
         let optionProduct = document.createElement('option');
         optionProduct.value = product.productname;
         optionProduct.innerText = product.productname;
         termeknev.appendChild(optionProduct);
     });
-    
+
     egysegar.value = filteredProducts.length > 0 ? filteredProducts[0].price : 0;
 }
 
@@ -167,7 +167,7 @@ function adatHozzaadas(){
         
 
         td3.appendChild(mennyiseg);
-        td6.appendChild(frissit);   
+        td6.appendChild(frissit);
         td6.appendChild(btn);
         tr.appendChild(td1);
         tr.appendChild(td2);
@@ -199,7 +199,7 @@ function mentes() {
             price: hozzaadottItemek[i].price
         };
         promises.push(
-            
+
             axios.post('http://localhost:3000/hozzaadottak', data)
                 .then(response => {
                     console.log("Adat sikeresen elmentve:", response.data);
@@ -207,9 +207,9 @@ function mentes() {
                 .catch(error => {
                     console.error("Hiba történt az adat mentése közben:", error);
                 })
-        )
-        
-    }
+        ) 
+
+       }
     Promise.all(promises)
         .then(() => {
             console.log("Minden adat sikeresen elmentve.");
